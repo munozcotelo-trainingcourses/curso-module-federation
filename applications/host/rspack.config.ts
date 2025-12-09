@@ -114,7 +114,7 @@ const configuration: rspack.RspackOptions = {
             name: myName,
             filename: "remote-entry.js",
             remotes: {
-                "calculadoraLib": "calculadoraLib@http://localhost:9091/remote-entry.js",
+                "calculadoraLib": "calculadoraLib@http://localhost:9091/mf-manifest.json",
             },
 
             exposes: {
