@@ -118,6 +118,8 @@ const configuration: rspack.RspackOptions = {
 
             exposes: {
                 ".": "./src/index",
+                "./normal": "./src/normal",
+                "./financiera": "./src/financiera",
             },
 
             shared: {
