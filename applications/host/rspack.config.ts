@@ -3,6 +3,9 @@ import * as rspack from "@rspack/core";
 import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
+import packageJson from "./package.json";
+const deps: Record<string, string> = packageJson?.dependencies ?? {};
+
 const myName: string = "host";
 
 const distPath: string = resolve(__dirname, "dist");
@@ -24,7 +27,6 @@ const configuration: rspack.RspackOptions = {
         pathinfo: false,
         path: distPath,
         publicPath: "auto",
-        // uniqueName: "host",
         chunkFilename: "assets/[name]-[contenthash].bundle.js",
         filename: "assets/source-[name]-[chunkhash].js",
         sourceMapFilename: "[file].map",
@@ -122,6 +124,13 @@ const configuration: rspack.RspackOptions = {
             },
 
             shared: {
+
+                lodash: {
+
+                    singleton: false,
+                    requiredVersion: deps["lodash"],
+
+                },
             },
 
         }),
