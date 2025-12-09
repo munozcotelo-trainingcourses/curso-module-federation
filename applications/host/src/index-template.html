@@ -1,0 +1,17 @@
+<html>
+
+    <head></head>
+
+    <body>
+
+        <h1>Host</h1>
+        <h2>Localhost in port <%= port %></h2>
+
+        <div id="scripts-id">
+            <% for (key in htmlWebpackPlugin.files.js) { %>
+            <script type="text/javascript" src="http://localhost:<%= port %>/<%= htmlWebpackPlugin.files.js[key] %>"></script>
+            <% } %>
+        </div>
+    </body>
+
+</html>

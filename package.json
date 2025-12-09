@@ -1,0 +1,18 @@
+{
+    "author": "alvaro.munozgarcia@gmail.com",
+    "description": "Curso module federation",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "license": "ISC",
+    "name": "curso-module-federation",
+    "private": true,
+    "scripts": {},
+    "version": "1.0.0",
+    "workspaces": [
+        "applications/*"
+    ],
+    "devDependencies": {
+        "lerna": "^8.1.8"
+    }
+}
