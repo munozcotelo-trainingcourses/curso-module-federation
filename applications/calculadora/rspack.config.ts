@@ -3,13 +3,16 @@ import * as rspack from "@rspack/core";
 import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
+import packageJson from "./package.json";
+const deps: Record<string, string> = packageJson?.dependencies ?? {};
+
 const myName: string = "calculadoraLib";
 
 const distPath: string = resolve(__dirname, "dist");
 const srcPath: string = resolve(__dirname, "src");
 
 const entries: rspack.Entry = {};
-entries[myName] = resolve(srcPath, "index.ts");
+entries[myName] = resolve(srcPath, "bootstrap.ts");
 
 const configuration: rspack.RspackOptions = {
 
@@ -24,7 +27,6 @@ const configuration: rspack.RspackOptions = {
         pathinfo: false,
         path: distPath,
         publicPath: "auto",
-        // uniqueName: "calculadoraLib",
         chunkFilename: "assets/[name]-[contenthash].bundle.js",
         filename: "assets/source-[name]-[chunkhash].js",
         sourceMapFilename: "[file].map",
@@ -123,6 +125,13 @@ const configuration: rspack.RspackOptions = {
             },
 
             shared: {
+
+                lodash: {
+
+                    singleton: false,
+                    requiredVersion: deps["lodash"],
+
+                },
             },
 
         }),
