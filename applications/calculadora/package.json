@@ -14,7 +14,7 @@
     "author": "amgarcia",
     "license": "ISC",
     "dependencies": {
-        "lodash": "^3.10.1"
+        "lodash": "^4.17.21"
     },
     "devDependencies": {
         "@module-federation/enhanced": "^0.9.1",
@@ -22,7 +22,7 @@
         "@rspack/core": "^1.2.7",
         "@rspack/dev-server": "^1.0.10",
         "@types/debug": "^4.1.12",
-        "@types/lodash": "^3.10.1",
+        "@types/lodash": "^4.17.21",
         "@types/webpack-dev-server": "^4.7.2",
         "@types/webpack-env": "^1.18.5",
         "buffer": "^6.0.3",
