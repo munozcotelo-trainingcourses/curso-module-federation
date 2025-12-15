@@ -122,6 +122,7 @@ const configuration: rspack.RspackOptions = {
                 ".": "./src/index",
                 "./normal": "./src/normal",
                 "./financiera": "./src/financiera",
+                "./ui": "./src/ui",
             },
 
             shared: {
@@ -165,7 +166,7 @@ const configuration: rspack.RspackOptions = {
         compress: true,
         port: 9091,
         hot: true,
-        open: false,
+        open: true,
 
         headers: {
 
