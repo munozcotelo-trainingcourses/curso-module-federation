@@ -1,4 +1,5 @@
 import { resolve } from "path";
+import { VueLoaderPlugin } from "vue-loader";
 import * as rspack from "@rspack/core";
 import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
@@ -41,7 +42,7 @@ const configuration: rspack.RspackOptions = {
 
     resolve: {
 
-        extensions: [".ts", ".tsx", ".js", ".json"],
+        extensions: [".ts", ".tsx", ".js", ".json", ".vue"],
         fallback: {
 
             "buffer": require.resolve("buffer/"),
@@ -63,28 +64,31 @@ const configuration: rspack.RspackOptions = {
 
         rules: [
             {
-                test: /\.tsx?/,
-                include: [
-                    srcPath,
-                ],
-                use: {
-
-                    loader: "ts-loader",
-                    options: {
-
-                        configFile: resolve(__dirname, "tsconfig.json"),
-
-                    },
-
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    experimentalInlineMatchResource: true,
                 },
-
             },
-
+            {
+                test: /\.tsx?$/,
+                use: [
+                    {
+                        loader: 'ts-loader',
+                        options: {
+                            transpileOnly: true,
+                            appendTsSuffixTo: [/\.vue$/],
+                            configFile: resolve(__dirname, "tsconfig.json"),
+                        },
+                    },
+                ],
+                exclude: /node_modules/,
+            },
             {
                 enforce: "pre",
-                test: /\.js$/, loader: "source-map-loader",
+                test: /\.js$/, 
+                loader: "source-map-loader",
             },
-
         ],
 
     },
@@ -99,6 +103,8 @@ const configuration: rspack.RspackOptions = {
         new rspack.ProgressPlugin({
             profile: false,
         }),
+
+        new VueLoaderPlugin() as rspack.RspackPluginFunction,
 
         new HtmlWebpackPlugin({
 
