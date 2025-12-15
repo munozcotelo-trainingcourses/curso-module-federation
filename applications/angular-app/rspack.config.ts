@@ -6,7 +6,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import packageJson from "./package.json";
 const deps: Record<string, string> = packageJson?.dependencies ?? {};
 
-const myName: string = "calculadoraLib";
+const myName: string = "angularApp";
 
 const distPath: string = resolve(__dirname, "dist");
 const srcPath: string = resolve(__dirname, "src");
@@ -106,7 +106,7 @@ const configuration: rspack.RspackOptions = {
             inject: false,
             template: resolve(srcPath, "index-template.html"),
             templateParameters: {
-                port: 9091,
+                port: 9092,
             },
 
         }),
@@ -120,8 +120,6 @@ const configuration: rspack.RspackOptions = {
 
             exposes: {
                 ".": "./src/index",
-                "./normal": "./src/normal",
-                "./financiera": "./src/financiera",
                 "./ui": "./src/ui",
             },
 
@@ -164,7 +162,7 @@ const configuration: rspack.RspackOptions = {
         },
 
         compress: true,
-        port: 9091,
+        port: 9092,
         hot: true,
         open: true,
 

@@ -1,11 +1,13 @@
 import * as lodash from "lodash";
+import { App, createApp, h } from "vue";
+
+import AppComponent from "./components/AppComponent.vue";
 
 console.info(`version de lodash en host ${lodash.VERSION}`);
 
 const name: string = "host";
 
 (async () => {
-
 
     const calculadora = await import("calculadoraLib");
 
@@ -28,6 +30,20 @@ const name: string = "host";
     console.group("Importando financiera de la calculadora");
     financiera.porcentaje(4, 1000);
     console.groupEnd()
+
+    const vueApp: App = createApp({
+
+        name: "VueComponent",
+        render: () =>
+
+            h(AppComponent),
+
+        components: { AppComponent },
+
+    });
+
+    vueApp
+        .mount(`#vue-host-app`);
 
 })();
 

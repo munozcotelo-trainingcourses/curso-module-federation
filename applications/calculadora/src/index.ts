@@ -1,3 +1,5 @@
+import { inicio } from "./ui";
+
 const name: string = "calculadora";
 
 setTimeout(() => {
@@ -8,6 +10,12 @@ setTimeout(() => {
         console.info(`version de lodash en calculadora ${lodash.VERSION}`);
 
     })();
+
+    /*
+     * comentar para federar 
+     * descomentar para trabajo local
+     */
+    // inicio("calculadora");
 
 }, 5000);
 

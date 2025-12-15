@@ -1,0 +1,48 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "baseUrl": ".",
+        "checkJs": false,
+        "declaration": false,
+        "jsx": "react",
+        "target": "es5",
+        "lib": [
+            "dom",
+            "es2015",
+            "es2015.promise"
+        ],
+        "skipLibCheck": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "noImplicitThis": false,
+        "sourceMap": true,
+        "removeComments": false,
+        "outDir": "./dist/",
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "paths": {
+          "*": ["./@mf-types/*"]
+        }
+    },
+    "include": [
+        "./config/**/*",
+        "./src/**/*",
+        "./test/**/*",
+        "./typings/**/*"
+    ],
+    "exclude": [
+        "./.git",
+        "./dist",
+        "./node_modules",
+        "./bundlers"
+    ],
+    "compileOnSave": false,
+    "ts-node"       : {
+        "compilerOptions" : {
+            "module" : "CommonJS"
+        }
+    }
+}
