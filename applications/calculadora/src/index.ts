@@ -11,7 +11,11 @@ setTimeout(() => {
 
     })();
 
-    inicio("calculadora");
+    /*
+     * comentar para federar 
+     * descomentar para trabajo local
+     */
+    // inicio("calculadora");
 
 }, 5000);
 

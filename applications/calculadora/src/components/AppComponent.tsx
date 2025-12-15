@@ -4,7 +4,7 @@ const AppComponent: () => React.ReactElement = (): React.ReactElement => {
 
     return (
         <div>
-            <h3>Hola, soy la calculadora</h3>
+            <h4>Hola, soy la calculadora</h4>
         </div>
     );
 

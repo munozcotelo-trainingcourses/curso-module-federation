@@ -86,7 +86,7 @@ const configuration: rspack.RspackOptions = {
             },
             {
                 enforce: "pre",
-                test: /\.js$/, 
+                test: /\.js$/,
                 loader: "source-map-loader",
             },
         ],
@@ -123,6 +123,7 @@ const configuration: rspack.RspackOptions = {
             filename: "remote-entry.js",
             remotes: {
                 "calculadoraLib": "calculadoraLib@http://localhost:9091/mf-manifest.json",
+                "angularApp": "angularApp@http://localhost:9092/mf-manifest.json",
             },
 
             exposes: {

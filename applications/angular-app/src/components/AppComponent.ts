@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
     selector: "app-root",
     standalone: true,
     template: `
-    Hola, soy una app de angular
+    <h4>Hola, soy una app de angular</h4>
   `,
 })
 export class AppComponent { }

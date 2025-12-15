@@ -6,7 +6,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import packageJson from "./package.json";
 const deps: Record<string, string> = packageJson?.dependencies ?? {};
 
-const myName: string = "calculadoraLib";
+const myName: string = "angularApp";
 
 const distPath: string = resolve(__dirname, "dist");
 const srcPath: string = resolve(__dirname, "src");

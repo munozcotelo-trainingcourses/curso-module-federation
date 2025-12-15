@@ -4,7 +4,11 @@ const name: string = "angular-app";
 
 setTimeout(() => {
 
-    inicio("angular-app");
+    /*
+     * comentar para federar 
+     * descomentar para trabajo local
+     */
+    // inicio("angular-app");
 
 }, 5000);
 
