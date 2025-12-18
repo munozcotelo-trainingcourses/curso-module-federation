@@ -3,6 +3,7 @@
 import { defineComponent, onMounted } from "vue";
 import * as calculadoraLib from "calculadoraLib/ui";
 import * as angularApp from "angularApp/ui";
+import * as vueApp from "vueApp/ui";
 
 export default defineComponent({
 
@@ -28,9 +29,14 @@ export default defineComponent({
             angularApp.inicio("id-angular-app");
         };
 
+        const onVue = () => {
+            vueApp.inicio("#id-vue-app");
+        };
+
         return {
             onCalculadora,
             onAngular,
+            onVue,
         };
 
     },
@@ -50,10 +56,12 @@ export default defineComponent({
         <div>
             <button v-on:click="onCalculadora">Calculadora</button>
             <button v-on:click="onAngular">Angular App</button>
+            <button v-on:click="onVue">Vue App</button>
         </div>
 
         <div id="id-calculadora"></div>
         <div id="id-angular-app"></div>
+        <div id="id-vue-app"></div>
 
     </div>
 
