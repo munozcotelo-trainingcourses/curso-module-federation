@@ -127,6 +127,7 @@ const configuration: rspack.RspackOptions = {
             exposes: {
                 ".": "./src/index",
                 "./ui": "./src/ui",
+                "./componente": "./src/components/Compartido.vue",
             },
 
             shared: {

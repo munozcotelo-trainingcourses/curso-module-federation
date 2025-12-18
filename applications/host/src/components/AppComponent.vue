@@ -4,6 +4,9 @@ import { defineComponent, onMounted } from "vue";
 import * as calculadoraLib from "calculadoraLib/ui";
 import * as angularApp from "angularApp/ui";
 import * as vueApp from "vueApp/ui";
+import * as ComponenteVue from "vueApp/componente";
+
+console.info(ComponenteVue.default);
 
 export default defineComponent({
 
@@ -12,6 +15,7 @@ export default defineComponent({
     props: {
     },
     components: {
+        ComponenteVue: ComponenteVue.default,
     },
     directives: {
     },
@@ -62,6 +66,7 @@ export default defineComponent({
         <div id="id-calculadora"></div>
         <div id="id-angular-app"></div>
         <div id="id-vue-app"></div>
+        <ComponenteVue />
 
     </div>
 
