@@ -7,7 +7,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import packageJson from "./package.json";
 const deps: Record<string, string> = packageJson?.dependencies ?? {};
 
-const myName: string = "host";
+const myName: string = "vueApp";
 
 const distPath: string = resolve(__dirname, "dist");
 const srcPath: string = resolve(__dirname, "src");
@@ -112,7 +112,7 @@ const configuration: rspack.RspackOptions = {
             inject: false,
             template: resolve(srcPath, "index-template.html"),
             templateParameters: {
-                port: 9090,
+                port: 9093,
             },
 
         }),
@@ -122,13 +122,12 @@ const configuration: rspack.RspackOptions = {
             name: myName,
             filename: "remote-entry.js",
             remotes: {
-                "calculadoraLib": "calculadoraLib@http://localhost:9091/mf-manifest.json",
-                "angularApp": "angularApp@http://localhost:9092/mf-manifest.json",
-                "vueApp": "vueApp@http://localhost:9093/mf-manifest.json",
             },
 
             exposes: {
                 ".": "./src/index",
+                "./ui": "./src/ui",
+                "./componente": "./src/components/Compartido.vue",
             },
 
             shared: {
@@ -170,7 +169,7 @@ const configuration: rspack.RspackOptions = {
         },
 
         compress: true,
-        port: 9090,
+        port: 9093,
         hot: true,
         open: true,
 
